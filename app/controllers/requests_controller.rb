@@ -1,9 +1,12 @@
 class RequestsController < ApplicationController
-  before_action 
+  #before_action :authenticate_admin!, except: [:new, :show]
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
   # GET /requests
   # GET /requests.json
+
+  
+
   def index
     @requests = Request.all
   end
@@ -29,6 +32,11 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
+
+        RequestConfirmation.confirmation_email(@request).deliver
+
+        flash[:success] = "Please confirm your email address to continue"
+
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
         format.json { render :show, status: :created, location: @request }
       else
@@ -37,6 +45,7 @@ class RequestsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json

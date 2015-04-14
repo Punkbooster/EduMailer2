@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414085800) do
+ActiveRecord::Schema.define(version: 20150414131042) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 20150414085800) do
     t.string   "kierunek"
     t.integer  "rok_studji"
     t.integer  "nr_legitymacji"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.boolean  "email_confirmed"
+    t.string   "confirm_token"
   end
 
 end
