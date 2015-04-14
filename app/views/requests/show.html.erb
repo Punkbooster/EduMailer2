@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Imie:</strong>
+  <%= @request.imie %>
+</p>
+
+<p>
+  <strong>Nazwisko:</strong>
+  <%= @request.nazwisko %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @request.email %>
+</p>
+
+<p>
+  <strong>Kierunek:</strong>
+  <%= @request.kierunek %>
+</p>
+
+<p>
+  <strong>Rok studji:</strong>
+  <%= @request.rok_studji %>
+</p>
+
+<p>
+  <strong>Nr legitymacji:</strong>
+  <%= @request.nr_legitymacji %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>
